@@ -33,23 +33,26 @@ Copy the .sql file on: 2.1-MySql-Estructura-Nivell1/script_2.1.1.1.sql
 
 ### 3. Insert Sample data
 
--- Add Supplier
+```sql
+-- Add Supplier (Example)
 INSERT INTO Suppliers (name, direction, phone_num, fax, nif) 
 VALUES ('Eyewear Supplier S.A.', 'Example Street, 123, 2nd Floor, Barcelona, 08001', '123456789', '987654321', 'B12345678');
 
--- Add Glasses
+-- Add Glasses (Example)
 INSERT INTO Glasses (brand, left_lens_correction, right_lens_correction, frame_type, frame_color, left_lens_color, right_lens_color, price, supplier_id) 
 VALUES ('Example Brand', 1.00, -1.50, 'plastic', 'Black', 'Blue', 'Green', 150.00, 1);
+```
 
 ### 4. Query data
 
 To view the inserted data, you can run queries like these:
+```sql
 SELECT * FROM Suppliers;
 SELECT * FROM Glasses;
 SELECT * FROM Customers;
 SELECT * FROM Employees;
 SELECT * FROM Sales;
-
+```
 
 ## Tools used
 
