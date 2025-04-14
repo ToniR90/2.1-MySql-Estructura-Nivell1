@@ -60,6 +60,6 @@ SELECT * FROM Sales;
 
 - MySQL Workbench: Tool used for designing and managing the database.
 
-- dbdiagram.io (if used): Tool for creating relational database diagrams.
+- dbdiagram.io: Tool for creating relational database diagrams.
 
 
