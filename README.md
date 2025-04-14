@@ -24,6 +24,8 @@ First, create the `Cul_d_ampolla` database with the following SQL script:
 ```sql
 CREATE DATABASE Cul_d_ampolla;
 USE Cul_d_ampolla;
+```
+
 
 ### 2. Create the tables
 
