@@ -50,3 +50,38 @@ CREATE TABLE Sales (
   FOREIGN KEY (glass_id) REFERENCES Glasses(id),
   FOREIGN KEY (employee_id) REFERENCES Employees(id)
 );
+
+
+
+-- DADES DE PROVA
+INSERT INTO Suppliers (name, direction, phone_num, fax, nif)
+VALUES
+  ('Optica Vision', 'Carrer Gran Via, 25, Barcelona, 08001, Espanya', '933000123', '933000124', 'B12345678'),
+  ('Vision Perfecta', 'Carrer de Sol, 15, Madrid, 28001, Espanya', '912345678', '912345679', 'B87654321');
+
+INSERT INTO Glasses (brand, left_lens_correction, right_lens_correction, frame_type, frame_color, left_lens_color, right_lens_color, price, supplier_id)
+VALUES
+  ('Ray-Ban', 1.50, 1.25, 'metal', 'black', 'transparent', 'transparent', 150.00, 1),
+  ('Oakley', 0.75, 0.50, 'plastic', 'blue', 'grey', 'grey', 120.00, 2),
+  ('Gucci', 2.00, 1.75, 'rimless', 'gold', 'green', 'green', 300.00, 1);
+
+INSERT INTO Customers (name, direction, phone_num, email, registration_date, recommended_by)
+VALUES
+  ('Juan Pérez', 'Carrer de Pau, 10, Barcelona', '600123456', 'juan.perez@email.com', '2023-01-10', NULL),
+  ('Maria López', 'Carrer de Sol, 5, Madrid', '612345678', 'maria.lopez@email.com', '2023-02-15', 1);
+
+INSERT INTO Employees (name)
+VALUES
+  ('Carlos García'),
+  ('Laura Martínez');
+
+INSERT INTO Sales (customer_id, glass_id, employee_id, sell_date)
+VALUES
+  (1, 1, 1, '2023-01-15'),
+  (2, 2, 2, '2023-02-20');
+
+
+--CONSULTES
+SELECT COUNT(*) AS total_sales FROM sales WHERE customer_id = 1 AND sell_date BETWEEN '2023-01-01' AND '2023-12-31';
+SELECT DISTINCT glasses.brand FROM sales INNER JOIN glasses ON sales.glass_id = glasses.id WHERE sales.employee_id = 1 AND sales.sell_date BETWEEN '2023-01-01' AND '2023-12-31';
+SELECT DISTINCT suppliers.name FROM sales INNER JOIN glasses ON sales.glass_id = glasses.id INNER JOIN suppliers ON glasses.supplier_id = suppliers.id;
